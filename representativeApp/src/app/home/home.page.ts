@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -8,11 +9,11 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 })
 export class HomePage implements OnInit {
 
-  constructor(private geolocation: Geolocation) { }
+  constructor(private geolocation: Geolocation,private router: Router) { }
    
 
   ngOnInit() {
-	  console.log("why is it blank? I don't know")
+	 
   }
 
   allowLocation(){
@@ -28,6 +29,9 @@ export class HomePage implements OnInit {
 		// data can be a set of coordinates, or an error (if an error occurred).
 		// data.coords.latitude
 		// data.coords.longitude
+		
 	   });
+	   this.router.navigate(["/list"]);
+
   }
 }
