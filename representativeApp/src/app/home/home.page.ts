@@ -12,6 +12,7 @@ export class HomePage implements OnInit {
    
 
   ngOnInit() {
+	  console.log("why is it blank? I don't know")
   }
 
   allowLocation(){
