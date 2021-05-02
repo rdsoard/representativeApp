@@ -5,8 +5,15 @@
 </ion-header>
 
 <ion-content>
-	<ion-searchbar color="danger" placeholder="Search by Zip"></ion-searchbar>
+	<ion-toolbar>
+		<ion-item>
+			<ion-input placeholder="Enter Zip" [(ngModel)]="this.zipcode"></ion-input>
+		</ion-item>
+		<ion-button color="danger" shape="round" (click)="searchZip()">
+			<ion-icon name="search-circle-outline"></ion-icon>
+		</ion-button>
+	</ion-toolbar>
 	<ion-button color="danger" fill="outline" (click)="allowLocation()">
-		Search with Location Tracking
+		Search by my Location
 	</ion-button>
 </ion-content>
