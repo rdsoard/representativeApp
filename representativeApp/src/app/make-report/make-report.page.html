@@ -1,9 +1,22 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>make report</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+	<ion-list>
+	<ion-item>
+		<ion-select placeholder="Select Issue" [(ngModel)]="report.problem">
+		  <ion-select-option value="My representative is missing">My representative is missing</ion-select-option>
+		  <ion-select-option value="A given representative's information is wrong">A given representative's information is wrong</ion-select-option>
+		  <ion-select-option value="A given representative is not currently in office">A given representative is not currently in office</ion-select-option>
+		  <ion-select-option value="A given representative is not in the correct location">A given representative is not in the correct location</ion-select-option>
+		  <ion-select-option value="Other">Other</ion-select-option>
+		</ion-select>
+ </ion-item>
+ <ion-item>
+	<ion-textarea rows="5" [(ngModel)]="product.note" placeholder="Please provide further details..."></ion-textarea>
+  </ion-item>
+</ion-list>
+<ion-button color="danger" expand="full" (click)="addReport()">Submit</ion-button>
 </ion-content>
