@@ -15,9 +15,13 @@ export class ListPage implements OnInit {
   ngOnInit() {
   }
   ngAfterViewInit():void{
-	//this.fbService.getRep(zipcode)).subscribe(representativeData => {
+	//this.fbService.getRep(state)).subscribe(representativeData => {
 	//this.representative = representativeData;
 	//});
+  }
+  
+  goToReports() {
+	this.router.navigate(['/report']);
   }
 
 }
