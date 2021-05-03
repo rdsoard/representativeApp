@@ -4,5 +4,5 @@ export interface Representative{
 	number: string;
 	position: string;
 	website: string;
-	zipcode: string;
+	state: string;
 }

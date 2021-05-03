@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
 
   }
 
-   zipcode:any;
+   state:any;
    lat:any;
    longt:any;
 
@@ -22,13 +22,12 @@ export class HomePage implements OnInit {
 	 
   }
 
-  searchZip(){
-	  console.log(this.zipcode)
-	  this.router.navigate(["/list"],this.zipcode);
+  searchState(){
+	  console.log(this.state)
+	  this.router.navigate(["/list"],this.state);
   }
 
-//this gives the longitude and lattitude, need to convert that to a zipcode and set that = to this.zipcode
-
+//this gives the longitude and lattitude
   allowLocation(){
 	this.geolocation.getCurrentPosition().then((resp) => {
 		this.lat = (resp.coords.latitude);
@@ -42,11 +41,9 @@ export class HomePage implements OnInit {
 		maxResults: 5
 	};
 
-	this.nativeGeocoder.reverseGeocode(this.lat, this.longt, options)
-	.then((result: NativeGeocoderResult[]) => console.log(JSON.stringify(result[0])))
-	.catch((error: any) => console.log(error));
+	//something that gets the state (Ex."SC","TN", "NY") from the coordinates and sets that = to this.state here
 
-	this.router.navigate(["/list"],this.zipcode);
+	this.router.navigate(["/list"],this.state);
 
   }
 }

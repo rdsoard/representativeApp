@@ -24,4 +24,7 @@ export class MakeReportPage implements OnInit {
   ngOnInit() {
   }
 
+  addReport(){
+	  
+  }
 }
