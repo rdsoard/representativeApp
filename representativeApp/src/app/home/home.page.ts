@@ -54,10 +54,12 @@ export class HomePage implements OnInit {
   //const location: ILocation = { lat: this.lat, long: this.longt};
   //const place: IGeocode = await Geocoder.locate(location);
   //console.log(place);
-  this.state = this.nativeGeocoder.reverseGeocode(this.lat, this.longt)
-  .then((result: NativeGeocoderResult[]) => JSON.stringify(result[0].administrativeArea))
-  .catch((error: any) => console.log(error));
+//   this.state = this.nativeGeocoder.reverseGeocode(this.lat, this.longt)
+//   .then((result: NativeGeocoderResult[]) => JSON.stringify(result[0].administrativeArea))
+//   .catch((error: any) => console.log(error));
   
+this.state = "SC"
+
   console.log(this.state);
 	this.router.navigate(["/list"],{
 		queryParams: this.state});
