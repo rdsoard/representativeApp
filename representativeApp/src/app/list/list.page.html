@@ -12,6 +12,7 @@
 <ion-list>
 	<ion-item *ngFor="let rep of (reps | async)">
 		<ion-label>
+			<ion-toolbar color="tertiary">
 			<ion-label>
 				<ion-thumbnail slot="start">
 					<ion-img [src]="rep.img"></ion-img>
@@ -19,6 +20,7 @@
 			</ion-label>
 			<h1>{{rep.name}}</h1>
 			<h2>{{rep.position}} for {{rep.state}}</h2>
+		</ion-toolbar>
 			<ion-toolbar>
 				{{rep.website}}
 			</ion-toolbar>
@@ -31,6 +33,6 @@
 			</ion-toolbar>
 		</ion-label>
 	</ion-item>
-	</ion-list> 
+	</ion-list>
 	<center><h2>{{message}}</h2></center>
 </ion-content>
