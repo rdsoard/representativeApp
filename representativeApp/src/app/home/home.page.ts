@@ -16,8 +16,8 @@ export class HomePage implements OnInit {
   }
   logo='assets/logo.png';
    state:any;
-   lat:any;
-   longt:any;
+   lat:number;
+   longt:number;
 
   ngOnInit() {
 	 
@@ -33,13 +33,21 @@ export class HomePage implements OnInit {
   allowLocation(){
 	this.geolocation.getCurrentPosition().then((resp) => {
 		this.lat = (resp.coords.latitude);
- 		this.longt =(resp.coords.longitude);
+ 		this.longt = (resp.coords.longitude);
      console.log(this.lat + "," + this.longt);
 	   }).catch((error) => {
 		 console.log('Error getting location', error);
 	   });
 
 	//something that gets the state (Ex."SC","TN", "NY") from the coordinates and sets that = to this.state here
+
+	if((this.lat <= 34.716313 && this.lat >= 33.841913) && (this.longt >= -81.194150 && this. longt <= -80.963049)) {
+		this.state = "SC"
+	}
+	//repeat for other states
+	else {
+		this.state = "XX"
+	}
 
   /*  var reverseGeocoder=new BDCReverseGeocode();
     reverseGeocoder.getClientLocation({
@@ -48,7 +56,6 @@ export class HomePage implements OnInit {
     },function(result) {
       console.log(result);
     }); */
-
 
 
 	this.router.navigate(["/list"],this.state);

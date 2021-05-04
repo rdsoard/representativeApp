@@ -13,7 +13,9 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 export class ListPage implements OnInit {
 	
 	private reps: Observable<Representative[]>;
+	private empty: Observable<Representative[]>;
 	state: any;
+	message: any;
 
   constructor(private activatedRoute: ActivatedRoute,
 	 private fbService: FirebaseService, private router: Router,
@@ -27,6 +29,9 @@ export class ListPage implements OnInit {
   }
   ngAfterViewInit():void{
 	this.reps = this.fbService.getReps(this.state);
+	if(this.reps[0] == null){
+		this.message = "No representatives were found!";
+	}
   }
   
   goToReports() {

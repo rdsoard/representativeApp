@@ -3,7 +3,7 @@
 	 <ion-buttons slot="start" color="danger">
 		 <ion-back-button></ion-back-button>
 	 </ion-buttons>
-    <ion-title>Representatives Found:</ion-title>
+    <ion-title color="danger">Representatives Found:</ion-title>
 	<ion-icon slot="end" color="danger" name="alert-circle-outline" (click)="goToReports()"></ion-icon>
   </ion-toolbar>
 </ion-header>
@@ -29,7 +29,8 @@
 					Call
 				</ion-buttons>
 			</ion-toolbar>
-	</ion-label>
+		</ion-label>
 	</ion-item>
-	</ion-list>  
+	</ion-list> 
+	<center><h2>{{message}}</h2></center>
 </ion-content>
