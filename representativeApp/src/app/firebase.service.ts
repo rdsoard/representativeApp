@@ -51,4 +51,24 @@ export class FirebaseService {
 		return this.reports;
 	}
 
+	likesUp(id,amt){
+		this.reportList.doc(id).update({like: amt+1});
+	}
+
+	likesDown(id,amt){
+		if(amt != 0){
+			this.reportList.doc(id).update({like: amt-1});
+		}
+	}
+
+	dislikesUp(id,amt){
+		this.reportList.doc(id).update({dislike: amt+1});
+	}
+
+	dislikesDown(id,amt){
+		if(amt != 0){
+			this.reportList.doc(id).update({dislike: amt-1});
+		}
+	}
+
 }

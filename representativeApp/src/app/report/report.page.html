@@ -15,11 +15,11 @@
 			<p>{{report.notes}}</p>
 			<ion-toolbar>
 				<ion-buttons slot="end">
-					<ion-icon name="arrow-up-outline"></ion-icon>
+					<ion-icon name="arrow-up-outline" (click)="like(report.id,report.like)"></ion-icon>
 					<p>{{report.like}}</p>
 				</ion-buttons>
 				<ion-buttons slot="end">
-					<ion-icon slot="end" name="arrow-down-outline"></ion-icon>
+					<ion-icon slot="end" name="arrow-down-outline" (click)="dislike(report.id,report.dislike)"></ion-icon>
 					<p>{{report.dislike}}</p>
 				</ion-buttons>
 			</ion-toolbar>

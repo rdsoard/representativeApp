@@ -16,9 +16,13 @@ export class ReportPage implements OnInit {
 	public afAuth: AngularFireAuth,
 	private router: Router) { }
 	private reports: Observable<Report[]>;
+	l: boolean;
+	d: boolean;
 
   ngOnInit() {
 	  this.reports = this.fbService.getReports();
+	  this.l = false;
+	  this.d = false;
   }
 
   goHome() {
@@ -27,6 +31,30 @@ export class ReportPage implements OnInit {
 
   writeReport() {
 	this.router.navigate(['/make-report']);
+  }
+
+  like(id,amt){
+	if(this.l == false){
+		this.fbService.likesUp(id,amt)
+		this.l = true
+		this.d = false
+	}
+	else {
+		this.fbService.likesDown(id,amt)
+		this.d = false
+	}
+  }
+
+  dislike(id,amt){
+	if(this.d == false){
+		this.fbService.dislikesUp(id,amt)
+		this.d = true
+		this.l = false
+	}
+	else {
+		this.fbService.dislikesDown(id,amt)
+		this.d = false
+	}
   }
 
 }
