@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { Router } from '@angular/router';
 import { VirtualTimeScheduler } from 'rxjs';
-//import { }
+//import ReverseGeocode, { ILocation, IGeocode } from "bigdatacloud-reverse-geocoding";
+import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions} from "@ionic-native/native-geocoder/ngx";
+//import { Geocoder } from 'ionic-native';
 
 @Component({
   selector: 'app-home',
@@ -11,8 +13,12 @@ import { VirtualTimeScheduler } from 'rxjs';
 })
 export class HomePage implements OnInit {
 
-  constructor(private geolocation: Geolocation,private router: Router) { 
-
+  constructor(private geolocation: Geolocation,private router: Router,private nativeGeocoder: NativeGeocoder) { 
+    //const geocode = new ReverseGeocode();
+    let options: NativeGeocoderOptions = {
+      useLocale: true,
+      maxResults: 5
+    };
   }
   logo='assets/logo.png';
    state:any;
@@ -30,7 +36,7 @@ export class HomePage implements OnInit {
   }
 
 //this gives the longitude and lattitude
-  allowLocation(){
+  async allowLocation(){
 	this.geolocation.getCurrentPosition().then((resp) => {
 		this.lat = (resp.coords.latitude);
  		this.longt = (resp.coords.longitude);
@@ -49,14 +55,12 @@ export class HomePage implements OnInit {
 		this.state = "XX"
 	}
 
-  /*  var reverseGeocoder=new BDCReverseGeocode();
-    reverseGeocoder.getClientLocation({
-      latitude: this.lat,
-      longitude: this.longt,
-    },function(result) {
-      console.log(result);
-    }); */
-
+  //const location: ILocation = { lat: this.lat, long: this.longt};
+  //const place: IGeocode = await Geocoder.locate(location);
+  //console.log(place);
+  this.nativeGeocoder.reverseGeocode(this.lat, this.longt)
+  .then((result: NativeGeocoderResult[]) => console.log(JSON.stringify(result[0])))
+  .catch((error: any) => console.log(error));
 
 	this.router.navigate(["/list"],this.state);
 
