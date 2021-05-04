@@ -15,10 +15,6 @@ export class HomePage implements OnInit {
 
   constructor(private geolocation: Geolocation,private router: Router,private nativeGeocoder: NativeGeocoder) { 
     //const geocode = new ReverseGeocode();
-    let options: NativeGeocoderOptions = {
-      useLocale: true,
-      maxResults: 5
-    };
   }
   logo='assets/logo.png';
    state:any;
@@ -47,22 +43,23 @@ export class HomePage implements OnInit {
 
 	//something that gets the state (Ex."SC","TN", "NY") from the coordinates and sets that = to this.state here
 
-	if((this.lat <= 34.716313 && this.lat >= 33.841913) && (this.longt >= -81.194150 && this. longt <= -80.963049)) {
+	/*if((this.lat <= 34.716313 && this.lat >= 33.841913) && (this.longt >= -81.194150 && this. longt <= -80.963049)) {
 		this.state = "SC"
 	}
 	//repeat for other states
 	else {
 		this.state = "XX"
-	}
+	}*/
 
   //const location: ILocation = { lat: this.lat, long: this.longt};
   //const place: IGeocode = await Geocoder.locate(location);
   //console.log(place);
-  this.nativeGeocoder.reverseGeocode(this.lat, this.longt)
-  .then((result: NativeGeocoderResult[]) => console.log(JSON.stringify(result[0])))
+  this.state = this.nativeGeocoder.reverseGeocode(this.lat, this.longt)
+  .then((result: NativeGeocoderResult[]) => JSON.stringify(result[0].administrativeArea))
   .catch((error: any) => console.log(error));
-
-	this.router.navigate(["/list"],this.state);
-
+  
+  console.log(this.state);
+	this.router.navigate(["/list"],{
+		queryParams: this.state});
   }
 }
