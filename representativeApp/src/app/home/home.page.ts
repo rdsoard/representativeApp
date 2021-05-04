@@ -14,7 +14,7 @@ export class HomePage implements OnInit {
   constructor(private geolocation: Geolocation,private router: Router) { 
 
   }
-
+  logo='assets/logo.png';
    state:any;
    lat:any;
    longt:any;
