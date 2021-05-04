@@ -12,7 +12,9 @@
 		  <ion-label>
 			<h3>Issue: </h3> <h1>{{report.problem}}</h1>
 			<p></p>
-			<p>{{report.notes}}</p>
+			<div class="ion-text-wrap">
+				<p class="wrap">{{report.notes}}</p>
+			</div>
 			<ion-toolbar>
 				<ion-buttons slot="end">
 					<ion-icon name="arrow-up-outline" (click)="like(report.id,report.like)"></ion-icon>
