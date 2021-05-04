@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
-import { NativeGeocoder, NativeGeocoderResult, NativeGeocoderOptions } from '@ionic-native/native-geocoder/ngx';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class HomePage implements OnInit {
 
-  constructor(private geolocation: Geolocation,private router: Router,private nativeGeocoder: NativeGeocoder) { 
+  constructor(private geolocation: Geolocation,private router: Router) { 
 
   }
 
@@ -24,7 +23,8 @@ export class HomePage implements OnInit {
 
   searchState(){
 	  console.log(this.state)
-	  this.router.navigate(["/list"],this.state);
+	  this.router.navigate(["/list"],{
+		queryParams: this.state});
   }
 
 //this gives the longitude and lattitude
@@ -35,11 +35,6 @@ export class HomePage implements OnInit {
 	   }).catch((error) => {
 		 console.log('Error getting location', error);
 	   });
-	
-	let options: NativeGeocoderOptions = {
-		useLocale: true,
-		maxResults: 5
-	};
 
 	//something that gets the state (Ex."SC","TN", "NY") from the coordinates and sets that = to this.state here
 

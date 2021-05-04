@@ -27,7 +27,7 @@ export class MakeReportPage implements OnInit {
   addReport(){
 	this.fbService.addReport(this.report).then((doc) => {
 		console.log(doc);
-		this.router.navigateByUrl('/');
+		this.router.navigateByUrl('/report');
 	  }, err => {
 	  });
   }

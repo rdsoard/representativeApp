@@ -1,10 +1,29 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Reports</ion-title>
+	<ion-icon slot="start" name="home-outline" (click)="goHome()"></ion-icon>
+	<ion-title>Reports</ion-title>
 	<ion-icon slot="end" name="pencil-outline" (click)="writeReport()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+	<ion-list>
+		<ion-item *ngFor="let report of (reports | async)">
+		  <ion-label>
+			<h3>Issue: </h3> <h1>{{report.problem}}</h1>
+			<p></p>
+			<p>{{report.notes}}</p>
+			<ion-toolbar>
+				<ion-buttons slot="end">
+					<ion-icon name="arrow-up-outline"></ion-icon>
+					<p>{{report.like}}</p>
+				</ion-buttons>
+				<ion-buttons slot="end">
+					<ion-icon slot="end" name="arrow-down-outline"></ion-icon>
+					<p>{{report.dislike}}</p>
+				</ion-buttons>
+			</ion-toolbar>
+		  </ion-label>
+		</ion-item>
+	  </ion-list>
 </ion-content>

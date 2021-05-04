@@ -9,5 +9,16 @@
 </ion-header>
 
 <ion-content>
-
+<ion-list>
+	<ion-item *ngFor="let rep of (reps | async)">
+		<ion-thumbnail slot="start">
+		<ion-img [src]="rep.img"></ion-img>
+		</ion-thumbnail>
+		<ion-label>{{rep.name}}</ion-label>
+		<p>{{rep.position}} for {{rep.state}}</p>
+		<p></p>
+		<p>{{rep.website}}</p>
+		<p>{{rep.number}}</p>
+	</ion-item>
+	</ion-list>  
 </ion-content>
