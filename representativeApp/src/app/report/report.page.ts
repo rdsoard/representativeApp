@@ -37,11 +37,10 @@ export class ReportPage implements OnInit {
 	if(this.l == false){
 		this.fbService.likesUp(id,amt)
 		this.l = true
-		this.d = false
 	}
 	else {
 		this.fbService.likesDown(id,amt)
-		this.d = false
+		this.l = false
 	}
   }
 
@@ -49,7 +48,6 @@ export class ReportPage implements OnInit {
 	if(this.d == false){
 		this.fbService.dislikesUp(id,amt)
 		this.d = true
-		this.l = false
 	}
 	else {
 		this.fbService.dislikesDown(id,amt)
