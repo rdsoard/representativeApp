@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Report} from '../Report';
 import {FirebaseService} from '../firebase.service';
-import { AngularFireAuth } from '@angular/fire/auth';
+//import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 export class ReportPage implements OnInit {
 
   constructor(private fbService: FirebaseService,
-	public afAuth: AngularFireAuth,
+	//public afAuth: AngularFireAuth,
 	private router: Router) { }
 
 	report: Report = {

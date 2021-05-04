@@ -1,7 +1,7 @@
 <ion-header>
 		<ion-toolbar>
 		  <ion-buttons slot="start" color="danger">
-			<ion-back-button></ion-back-button>
+			<ion-back-button>Cancel</ion-back-button>
 		  </ion-buttons>
 		</ion-toolbar>
 </ion-header>
@@ -18,7 +18,7 @@
 		</ion-select>
  </ion-item>
  <ion-item>
-	<ion-textarea rows="5" [(ngModel)]="product.note" placeholder="Please provide further details..."></ion-textarea>
+	<ion-textarea rows="5" [(ngModel)]="report.notes" placeholder="Please provide further details..."></ion-textarea>
   </ion-item>
 </ion-list>
 <ion-button color="danger" expand="full" (click)="addReport()">Submit</ion-button>

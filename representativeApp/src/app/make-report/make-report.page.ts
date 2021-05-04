@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Report} from '../Report';
 import {FirebaseService} from '../firebase.service';
-import { AngularFireAuth } from '@angular/fire/auth';
+//import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,13 +18,17 @@ export class MakeReportPage implements OnInit {
   };
   
   constructor(private fbService: FirebaseService,
-	public afAuth: AngularFireAuth,
+	//public afAuth: AngularFireAuth,
 	private router: Router) { }
 
   ngOnInit() {
   }
 
   addReport(){
-	  
+	this.fbService.addReport(this.report).then((doc) => {
+		console.log(doc);
+		this.router.navigateByUrl('/');
+	  }, err => {
+	  });
   }
 }
