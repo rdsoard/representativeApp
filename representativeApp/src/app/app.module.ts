@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
 import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { CallNumber } from '@ionic-native/call-number/ngx';
 import { AngularFireModule } from '@angular/fire';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
@@ -22,7 +23,7 @@ const firebaseConfig = {
   declarations: [AppComponent],
   entryComponents: [],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, AngularFireModule.initializeApp(firebaseConfig)],
-  providers: [Geolocation,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [CallNumber,Geolocation,{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

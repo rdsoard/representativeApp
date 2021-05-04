@@ -11,14 +11,25 @@
 <ion-content>
 <ion-list>
 	<ion-item *ngFor="let rep of (reps | async)">
-		<ion-thumbnail slot="start">
-		<ion-img [src]="rep.img"></ion-img>
-		</ion-thumbnail>
-		<ion-label>{{rep.name}}</ion-label>
-		<p>{{rep.position}} for {{rep.state}}</p>
-		<p></p>
-		<p>{{rep.website}}</p>
-		<p>{{rep.number}}</p>
+		<ion-label>
+			<ion-label>
+				<ion-thumbnail slot="start">
+					<ion-img [src]="rep.img"></ion-img>
+				</ion-thumbnail>
+			</ion-label>
+			<h1>{{rep.name}}</h1>
+			<h2>{{rep.position}} for {{rep.state}}</h2>
+			<ion-toolbar>
+				{{rep.website}}
+			</ion-toolbar>
+			<ion-toolbar>
+				<h2>{{rep.number}}</h2>
+				<ion-buttons color="danger" fill="solid" slot="end" (click)="makeCall(rep.number)">
+					<ion-icon name="call-outline"></ion-icon>
+					Call
+				</ion-buttons>
+			</ion-toolbar>
+	</ion-label>
 	</ion-item>
 	</ion-list>  
 </ion-content>
